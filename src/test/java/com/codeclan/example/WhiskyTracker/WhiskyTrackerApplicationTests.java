@@ -56,9 +56,13 @@ public class WhiskyTrackerApplicationTests {
 //		assertEquals(new Long(2), found.get(0).getId());
 //	}
 
-	@Test public void canFindWhiskiesByDistillery(){
-		List<Whisky> found = whiskyRepository.findWhiskiesThatHaveDistilleryNameAndWhiskyAge("Macallan");
-		assertEquals(new Long(3), found.get(0).getId());
-	}
+//	@Test public void canFindWhiskiesByDistillery(){
+//		List<Whisky> found = whiskyRepository.findWhiskiesThatHaveDistilleryNameAndWhiskyAge("Macallan");
+//		assertEquals(new Long(3), found.get(0).getId());
+//	}
 
+	@Test public void canFindWhiskiesByDistilleryAndAge(){
+		List<Whisky> found = whiskyRepository.findWhiskiesThatHaveDistilleryNameAndWhiskyAge("Glendronach", 15);
+		assertEquals(new Long(1), found.get(0).getId());
+	}
 }
