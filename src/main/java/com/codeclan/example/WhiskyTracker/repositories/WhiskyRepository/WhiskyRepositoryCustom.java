@@ -11,4 +11,6 @@ public interface WhiskyRepositoryCustom {
 //    List<Whisky> findWhiskiesThatHaveDistilleryNameAndWhiskyAge(int age);
 //    List<Whisky> findWhiskiesThatHaveDistilleryNameAndWhiskyAge(String name);
     List<Whisky> findWhiskiesThatHaveDistilleryNameAndWhiskyAge(String name, int age);
+
+    List<Whisky> findWhiskiesByRegion(String region);
 }

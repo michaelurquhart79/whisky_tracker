@@ -28,8 +28,22 @@ public class WhiskyRepositoryImpl implements WhiskyRepositoryCustom {
         criteria.add(Restrictions.eq("age", age));
         criteria.createAlias("distillery", "distilleryAlias");
         criteria.add(Restrictions.eq("distilleryAlias.name", name));
+//        criteria.add(Restrictions.eq("distillery.name", name)); DOESN'T WORK IN PLACE OF PREVIOUS 2 LINES
         result = criteria.list();
 
         return result;
     }
+
+    @Transactional
+    public List<Whisky> findWhiskiesByRegion(String region) {
+        List<Whisky> result = null;
+        Session session = entityManager.unwrap(Session.class);
+        Criteria criteria = session.createCriteria(Whisky.class);
+        criteria.createAlias("distillery", "distilleryAlias");
+        criteria.add(Restrictions.eq("distilleryAlias.region", region));
+        result = criteria.list();
+
+        return result;
+    }
+
 }
