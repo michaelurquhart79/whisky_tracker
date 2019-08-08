@@ -72,4 +72,10 @@ public class WhiskyTrackerApplicationTests {
 		assertEquals(new Long(1), found.get(0).getId());
 		assertEquals(new Long(4), found.get(1).getId());
 	}
+
+	@Test
+	public void canFindDistilleriesWith12YOWhiskies(){
+		List<Distillery> found = distilleryRepository.findDistilleriesWith12YOWhiskies();
+		assertEquals(2, found.size());
+	}
 }
