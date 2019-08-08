@@ -22,4 +22,9 @@ public class DistilleryController {
         return distilleryRepository.findDistilleriesByRegion(region);
     }
 
+    @GetMapping(value = "/with12YOWhiskies")
+    List<Distillery> findAllDistilleriesWith12YOWhiskies() {
+        return distilleryRepository.findDistilleriesWith12YOWhiskies();
+    }
+
 }
